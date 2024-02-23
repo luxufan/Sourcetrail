@@ -32,6 +32,7 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
     string(REGEX REPLACE "^([0-9]+)\\..*" "\\1" VERSION_YEAR "${GIT_VERSION_NUMBER}")
     string(REGEX REPLACE "^[0-9]+\\.([0-9]+).*" "\\1" VERSION_MINOR "${GIT_VERSION_NUMBER}")
     string(REGEX REPLACE "^[0-9]+\\.[0-9]+-([0-9]+).*" "\\1" VERSION_COMMIT "${GIT_VERSION_NUMBER}")
+    message("version: ${VERSIONN_YEAR} ${VERSION_MINOR} ${VERSION_COMMIT}")
 
 else(EXISTS "${CMAKE_SOURCE_DIR}/.git")
     set(GIT_BRANCH "")
@@ -44,7 +45,7 @@ else(EXISTS "${CMAKE_SOURCE_DIR}/.git")
 
 endif(EXISTS "${CMAKE_SOURCE_DIR}/.git")
 
-set(VERSION_STRING "${VERSION_YEAR}.${VERSION_MINOR}.${VERSION_COMMIT}")
+set(VERSION_STRING "2021.4.22")
 
 message(STATUS "Version: ${VERSION_STRING}")
 

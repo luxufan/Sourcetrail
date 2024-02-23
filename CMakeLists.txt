@@ -11,6 +11,11 @@ set(TREAT_WARNINGS_AS_ERRORS ON CACHE BOOL "Treat compiler warnings as errors")
 
 #set (CMAKE_VERBOSE_MAKEFILE ON)
 
+set(CMAKE_SOURCE_DIR "${CMAKE_SOURCE_DIR}/DynCastOPT/Sourcetrail")
+set(CMAKE_BINARY_DIR "${CMAKE_BINARY_DIR}/DynCastOPT/Sourcetrail")
+message("CMAKE_SOURCR_DIR : ${CMAKE_SOURCE_DIR}")
+message("CMAKE_BINARY_DIR : ${CMAKE_CURRNET_SOURCE_DIR}")
+
 include(cmake/add_files.cmake)
 include(cmake/create_source_groups.cmake)
 include(cmake/version.cmake)
@@ -707,7 +712,7 @@ if (WIN32)
 	string(REGEX REPLACE "/" "\\\\" BACKSLASHED_CMAKE_BINARY_DIR ${CMAKE_BINARY_DIR})
 	string(REGEX REPLACE "/" "\\\\" BACKSLASHED_CMAKE_SOURCE_DIR ${CMAKE_SOURCE_DIR})
 else ()
-	add_executable(${APP_PROJECT_NAME} ${APP_FILES})
+	llvm_multisource(${APP_PROJECT_NAME} ${APP_FILES} )
 endif ()
 
 create_source_groups(${APP_FILES})
